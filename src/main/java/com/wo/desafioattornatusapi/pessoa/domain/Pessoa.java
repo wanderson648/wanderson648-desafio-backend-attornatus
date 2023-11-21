@@ -1,6 +1,7 @@
 package com.wo.desafioattornatusapi.pessoa.domain;
 
 
+import com.wo.desafioattornatusapi.pessoa.application.api.PessoaRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -25,4 +27,13 @@ public class Pessoa {
     private String nome;
     @NotNull
     private LocalDate dataDeNascimento;
+
+    private LocalDateTime dataHoraDoCadastro;
+    private LocalDateTime dataHoraDaUltimaAlteracao;
+
+    public Pessoa(PessoaRequest pr) {
+        this.nome = pr.getNome();
+        this.dataDeNascimento = pr.getDataDeNascimento();
+        this.dataHoraDoCadastro = LocalDateTime.now();
+    }
 }
