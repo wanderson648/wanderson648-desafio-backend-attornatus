@@ -1,7 +1,7 @@
-package com.wo.desafioattornatusapi.pessoa.infra;
+package com.wo.desafioattornatusapi.pessoa.application.infra;
 
 import com.wo.desafioattornatusapi.pessoa.domain.Pessoa;
-import com.wo.desafioattornatusapi.pessoa.repository.PessoaRepository;
+import com.wo.desafioattornatusapi.pessoa.application.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;

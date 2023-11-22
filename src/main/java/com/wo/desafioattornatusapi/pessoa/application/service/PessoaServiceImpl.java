@@ -1,10 +1,10 @@
-package com.wo.desafioattornatusapi.pessoa.service;
+package com.wo.desafioattornatusapi.pessoa.application.service;
 
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaListResponse;
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaRequest;
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaResponse;
 import com.wo.desafioattornatusapi.pessoa.domain.Pessoa;
-import com.wo.desafioattornatusapi.pessoa.repository.PessoaRepository;
+import com.wo.desafioattornatusapi.pessoa.application.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;

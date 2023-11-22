@@ -1,4 +1,4 @@
-package com.wo.desafioattornatusapi.pessoa.service;
+package com.wo.desafioattornatusapi.pessoa.application.service;
 
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaListResponse;
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaRequest;

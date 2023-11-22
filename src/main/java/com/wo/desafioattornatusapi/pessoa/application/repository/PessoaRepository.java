@@ -1,4 +1,4 @@
-package com.wo.desafioattornatusapi.pessoa.repository;
+package com.wo.desafioattornatusapi.pessoa.application.repository;
 
 import com.wo.desafioattornatusapi.pessoa.domain.Pessoa;
 

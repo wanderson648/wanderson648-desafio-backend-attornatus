@@ -1,6 +1,6 @@
 package com.wo.desafioattornatusapi.pessoa.application.api;
 
-import com.wo.desafioattornatusapi.pessoa.service.PessoaService;
+import com.wo.desafioattornatusapi.pessoa.application.service.PessoaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.wo.desafioattornatusapi.pessoa.infra;
+package com.wo.desafioattornatusapi.pessoa.application.infra;
 
 import com.wo.desafioattornatusapi.pessoa.domain.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
