@@ -1,9 +1,6 @@
 package com.wo.desafioattornatusapi.pessoa.application.service;
 
-import com.wo.desafioattornatusapi.pessoa.application.api.PessoaDetalhadoResponse;
-import com.wo.desafioattornatusapi.pessoa.application.api.PessoaListResponse;
-import com.wo.desafioattornatusapi.pessoa.application.api.PessoaRequest;
-import com.wo.desafioattornatusapi.pessoa.application.api.PessoaResponse;
+import com.wo.desafioattornatusapi.pessoa.application.api.*;
 import com.wo.desafioattornatusapi.pessoa.domain.Pessoa;
 import com.wo.desafioattornatusapi.pessoa.application.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
@@ -41,5 +38,14 @@ public class PessoaServiceImpl implements PessoaService {
         Pessoa pessoa = pessoaRepository.buscarPessoaPorId(idPessoa);
         log.info("[finaliza] PessoaServiceImpl - getPessoas");
         return new PessoaDetalhadoResponse(pessoa);
+    }
+
+    @Override
+    public void patchEditaPessoa(UUID idPessoa, PessoaEditaRequest pessoaEditaRequest) {
+        log.info("[inicia] PessoaServiceImpl - patchEditaPessoa");
+        Pessoa pessoa = pessoaRepository.buscarPessoaPorId(idPessoa);
+        pessoa.editaPessoa(pessoaEditaRequest);
+        pessoaRepository.salva(pessoa);
+        log.info("[finaliza] PessoaServiceImpl - patchEditaPessoa");
     }
 }

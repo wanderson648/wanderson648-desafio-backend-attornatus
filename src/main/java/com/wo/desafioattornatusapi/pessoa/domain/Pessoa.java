@@ -1,6 +1,7 @@
 package com.wo.desafioattornatusapi.pessoa.domain;
 
 
+import com.wo.desafioattornatusapi.pessoa.application.api.PessoaEditaRequest;
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -35,5 +36,11 @@ public class Pessoa {
         this.nome = pr.getNome();
         this.dataDeNascimento = pr.getDataDeNascimento();
         this.dataHoraDoCadastro = LocalDateTime.now();
+    }
+
+    public void editaPessoa(PessoaEditaRequest pessoaEditaRequest) {
+        this.nome = pessoaEditaRequest.getNome();
+        this.dataDeNascimento = pessoaEditaRequest.getDataDeNascimento();
+        this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
     }
 }

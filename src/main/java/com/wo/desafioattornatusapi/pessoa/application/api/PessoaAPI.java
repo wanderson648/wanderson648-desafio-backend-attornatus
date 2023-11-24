@@ -22,4 +22,9 @@ public interface PessoaAPI {
     @GetMapping(value = "/{idPessoa}")
     @ResponseStatus(code = HttpStatus.OK)
     PessoaDetalhadoResponse getPessoaId(@Valid @PathVariable UUID idPessoa);
+
+    @PatchMapping(value = "/{idPessoa}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void patchEditaPessoa(@PathVariable UUID idPessoa,
+                          @Valid @RequestBody PessoaEditaRequest pessoaEditaRequest);
 }
