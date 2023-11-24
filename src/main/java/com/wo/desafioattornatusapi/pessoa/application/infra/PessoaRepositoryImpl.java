@@ -12,7 +12,7 @@ import java.util.UUID;
 @Repository
 @Log4j2
 @RequiredArgsConstructor
-public class PessoaInfraRepository implements PessoaRepository {
+public class PessoaRepositoryImpl implements PessoaRepository {
 
     private final PessoaSpringJpaRepository pessoaSpringJpaRepository;
     @Override

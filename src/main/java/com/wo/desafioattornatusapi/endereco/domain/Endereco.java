@@ -18,10 +18,10 @@ import java.util.UUID;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid",  name = "idEndereco", updatable = false, unique = true, nullable = false)
     private UUID idEndereco;
-    @Column(columnDefinition = "uuid", updatable = false, unique = true, nullable = false)
-    private UUID idPessoa;
+    @Column(columnDefinition = "uuid", name = "idPessoaEndereco", nullable = false)
+    private UUID idPessoaEndereco;
     @NotBlank
     private String logadouro;
     @NotBlank
@@ -36,7 +36,7 @@ public class Endereco {
 
 
     public Endereco(UUID idPessoa, EnderecoRequest enderecoRequest) {
-        this.idPessoa = idPessoa;
+        this.idPessoaEndereco = idPessoa;
         this.logadouro = enderecoRequest.getLogadouro();
         this.cep = enderecoRequest.getCep();
         this.numero = enderecoRequest.getNumero();

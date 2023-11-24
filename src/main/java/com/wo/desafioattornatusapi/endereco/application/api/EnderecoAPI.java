@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -12,5 +13,11 @@ public interface EnderecoAPI {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    EnderecoResponse postEndereco(@PathVariable UUID idPessoa, @Valid @RequestBody EnderecoRequest endereco);
+    EnderecoResponse postEndereco(@PathVariable UUID idPessoa,
+                                  @Valid @RequestBody EnderecoRequest endereco);
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    List<EnderecoPessoaListResponse> getEnderecoDaPessoaComId(@PathVariable UUID idPessoa);
+
+    EnderecoPrincipalDetalhado getEnderecoPrincipalDaPessoa();
 }

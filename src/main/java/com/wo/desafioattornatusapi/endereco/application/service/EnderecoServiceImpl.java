@@ -1,26 +1,26 @@
 package com.wo.desafioattornatusapi.endereco.application.service;
 
+import com.wo.desafioattornatusapi.endereco.application.api.EnderecoPessoaListResponse;
 import com.wo.desafioattornatusapi.endereco.application.api.EnderecoRequest;
 import com.wo.desafioattornatusapi.endereco.application.api.EnderecoResponse;
 import com.wo.desafioattornatusapi.endereco.application.repository.EnderecoRepository;
 import com.wo.desafioattornatusapi.endereco.domain.Endereco;
 import com.wo.desafioattornatusapi.pessoa.application.service.PessoaService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
 @Log4j2
+@RequiredArgsConstructor
 public class EnderecoServiceImpl implements EnderecoService {
 
     private final PessoaService pessoaService;
     private final EnderecoRepository enderecoRepository;
 
-    public EnderecoServiceImpl(PessoaService pessoaService, EnderecoRepository enderecoRepository) {
-        this.pessoaService = pessoaService;
-        this.enderecoRepository = enderecoRepository;
-    }
 
     @Override
     public EnderecoResponse criaEndereco(UUID idPessoa, EnderecoRequest enderecoRequest) {
@@ -29,5 +29,14 @@ public class EnderecoServiceImpl implements EnderecoService {
         Endereco endereco = enderecoRepository.salvaEndereco(new Endereco(idPessoa, enderecoRequest));
         log.info("[finaliza] EnderecoController - postEndereco");
         return new EnderecoResponse(endereco.getIdEndereco());
+    }
+
+    @Override
+    public List<EnderecoPessoaListResponse> buscaEnderecoPessoaPorId(UUID idPessoa) {
+        log.info("[inicia] EnderecoController - buscaEnderecoPessoaPorId");
+        pessoaService.getPessoaId(idPessoa);
+        List<Endereco> enderecos = enderecoRepository.buscaEnderecosPessoaComId(idPessoa);
+        log.info("[finaliza] EnderecoController - buscaEnderecoPessoaPorId");
+        return EnderecoPessoaListResponse.converte(enderecos);
     }
 }
