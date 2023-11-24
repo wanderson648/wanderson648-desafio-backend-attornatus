@@ -30,4 +30,12 @@ public class EnderecoRepositoryImpl implements EnderecoRepository {
         log.info("[finaliza] EnderecoRepositoryImpl - buscaEnderecosPessoaComId");
         return enderecos;
     }
+
+    @Override
+    public Endereco buscaEnderecoPrincipal(Boolean principal) {
+        log.info("[inicia] EnderecoRepositoryImpl - buscaEnderecoPeloId");
+        var endereco = enderecoSpringJpaRepository.findByPrincipalEndereco(principal);
+        log.info("[finaliza] EnderecoRepositoryImpl - buscaEnderecoPeloId");
+        return endereco;
+    }
 }

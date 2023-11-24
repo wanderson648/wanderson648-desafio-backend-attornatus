@@ -19,5 +19,8 @@ public interface EnderecoAPI {
     @ResponseStatus(code = HttpStatus.OK)
     List<EnderecoPessoaListResponse> getEnderecoDaPessoaComId(@PathVariable UUID idPessoa);
 
-    EnderecoPrincipalDetalhado getEnderecoPrincipalDaPessoa();
+    @GetMapping("/principal")
+    @ResponseStatus(code = HttpStatus.OK)
+    EnderecoPrincipalDetalhado getEnderecoPrincipalDaPessoa(@RequestParam Boolean principal,
+                                                            @PathVariable UUID idPessoa);
 }

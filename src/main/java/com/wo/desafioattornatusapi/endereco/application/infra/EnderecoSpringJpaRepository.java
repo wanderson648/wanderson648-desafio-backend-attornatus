@@ -8,4 +8,5 @@ import java.util.UUID;
 
 public interface EnderecoSpringJpaRepository extends JpaRepository<Endereco, UUID> {
     List<Endereco> findByIdPessoaEndereco(UUID idPessoaEndereco);
+    Endereco findByPrincipalEndereco(Boolean principalEndereco);
 }

@@ -9,4 +9,5 @@ public interface EnderecoRepository {
     Endereco salvaEndereco(Endereco endereco);
 
     List<Endereco> buscaEnderecosPessoaComId(UUID idPessoa);
+    Endereco buscaEnderecoPrincipal(Boolean principal);
 }

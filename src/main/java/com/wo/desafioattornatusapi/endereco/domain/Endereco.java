@@ -3,6 +3,7 @@ package com.wo.desafioattornatusapi.endereco.domain;
 import com.wo.desafioattornatusapi.endereco.application.api.EnderecoRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,9 +31,9 @@ public class Endereco {
     private String numero;
     @NotBlank
     private String cidade;
-
+    @NotNull
+    private Boolean principalEndereco;
     private LocalDateTime dataHoraDoCadastro;
-    private LocalDateTime dataHoraDaUltimaAlteracao;
 
 
     public Endereco(UUID idPessoa, EnderecoRequest enderecoRequest) {
@@ -41,6 +42,7 @@ public class Endereco {
         this.cep = enderecoRequest.getCep();
         this.numero = enderecoRequest.getNumero();
         this.cidade = enderecoRequest.getCidade();
+        this.principalEndereco = enderecoRequest.getPrincipal();
         this.dataHoraDoCadastro = LocalDateTime.now();
     }
 }

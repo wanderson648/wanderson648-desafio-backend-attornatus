@@ -1,6 +1,7 @@
 package com.wo.desafioattornatusapi.endereco.application.api;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 
 import java.util.UUID;
@@ -15,4 +16,6 @@ public class EnderecoRequest {
     String numero;
     @NotBlank
     String cidade;
+    @NotNull
+    Boolean principal;
 }

@@ -1,6 +1,7 @@
 package com.wo.desafioattornatusapi.endereco.application.service;
 
 import com.wo.desafioattornatusapi.endereco.application.api.EnderecoPessoaListResponse;
+import com.wo.desafioattornatusapi.endereco.application.api.EnderecoPrincipalDetalhado;
 import com.wo.desafioattornatusapi.endereco.application.api.EnderecoRequest;
 import com.wo.desafioattornatusapi.endereco.application.api.EnderecoResponse;
 import com.wo.desafioattornatusapi.endereco.application.repository.EnderecoRepository;
@@ -24,10 +25,10 @@ public class EnderecoServiceImpl implements EnderecoService {
 
     @Override
     public EnderecoResponse criaEndereco(UUID idPessoa, EnderecoRequest enderecoRequest) {
-        log.info("[inicia] EnderecoController - postEndereco");
+        log.info("[inicia] EnderecoController - criaEndereco");
         pessoaService.getPessoaId(idPessoa);
         Endereco endereco = enderecoRepository.salvaEndereco(new Endereco(idPessoa, enderecoRequest));
-        log.info("[finaliza] EnderecoController - postEndereco");
+        log.info("[finaliza] EnderecoController - criaEndereco");
         return new EnderecoResponse(endereco.getIdEndereco());
     }
 
@@ -38,5 +39,16 @@ public class EnderecoServiceImpl implements EnderecoService {
         List<Endereco> enderecos = enderecoRepository.buscaEnderecosPessoaComId(idPessoa);
         log.info("[finaliza] EnderecoController - buscaEnderecoPessoaPorId");
         return EnderecoPessoaListResponse.converte(enderecos);
+    }
+
+    @Override
+    public EnderecoPrincipalDetalhado buscaEnderecoPrincipal(
+            Boolean pricipal,UUID idPessoa) {
+
+        log.info("[inicia] EnderecoController - buscaEnderecoPrincipal");
+        pessoaService.getPessoaId(idPessoa);
+        Endereco endereco = enderecoRepository.buscaEnderecoPrincipal(pricipal);
+        log.info("[finaliza] EnderecoController - buscaEnderecoPrincipal");
+        return new EnderecoPrincipalDetalhado(endereco);
     }
 }
