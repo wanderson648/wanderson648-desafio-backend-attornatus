@@ -1,5 +1,6 @@
 package com.wo.desafioattornatusapi.pessoa.application.service;
 
+import com.wo.desafioattornatusapi.pessoa.application.api.PessoaDetalhadoResponse;
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaListResponse;
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaRequest;
 import com.wo.desafioattornatusapi.pessoa.application.api.PessoaResponse;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -31,5 +33,13 @@ public class PessoaServiceImpl implements PessoaService {
         List<Pessoa> pessoas = pessoaRepository.buscarTodasAsPessoas();
         log.info("[finaliza] PessoaServiceImpl - getPessoas");
         return PessoaListResponse.coverte(pessoas);
+    }
+
+    @Override
+    public PessoaDetalhadoResponse getPessoaId(UUID idPessoa) {
+        log.info("[inicia] PessoaServiceImpl - getPessoas");
+        Pessoa pessoa = pessoaRepository.buscarPessoaPorId(idPessoa);
+        log.info("[finaliza] PessoaServiceImpl - getPessoas");
+        return new PessoaDetalhadoResponse(pessoa);
     }
 }
