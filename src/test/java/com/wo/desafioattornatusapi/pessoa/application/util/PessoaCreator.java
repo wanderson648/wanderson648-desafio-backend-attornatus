@@ -7,12 +7,6 @@ import java.util.UUID;
 
 public class PessoaCreator {
     private static final UUID pessoaId = UUID.fromString("a713162f-20a9-4db9-a85b-90cd51ab18f4");
-    public static Pessoa createPessoaToBeSaved() {
-        return Pessoa.builder()
-                .nome("wanderson")
-                .dataDeNascimento(LocalDate.of(1996, 9, 14))
-                .build();
-    }
 
     public static Pessoa createValidPessoa() {
         return Pessoa.builder()

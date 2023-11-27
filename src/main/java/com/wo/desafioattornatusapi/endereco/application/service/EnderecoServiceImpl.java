@@ -33,10 +33,10 @@ public class EnderecoServiceImpl implements EnderecoService {
     }
 
     @Override
-    public List<EnderecoPessoaListResponse> buscaEnderecoPessoaPorId(UUID idPessoa) {
+    public List<EnderecoPessoaListResponse> buscaEnderecoDePessoaPorId(UUID idPessoa) {
         log.info("[inicia] EnderecoController - buscaEnderecoPessoaPorId");
         pessoaService.getPessoaId(idPessoa);
-        List<Endereco> enderecos = enderecoRepository.buscaEnderecosPessoaComId(idPessoa);
+        List<Endereco> enderecos = enderecoRepository.buscaEnderecosDePessoaComId(idPessoa);
         log.info("[finaliza] EnderecoController - buscaEnderecoPessoaPorId");
         return EnderecoPessoaListResponse.converte(enderecos);
     }

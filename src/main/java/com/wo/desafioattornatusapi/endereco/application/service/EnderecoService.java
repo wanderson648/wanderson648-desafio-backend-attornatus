@@ -10,6 +10,6 @@ import java.util.UUID;
 
 public interface EnderecoService {
     EnderecoResponse criaEndereco(UUID idPessoa, EnderecoRequest endereco);
-    List<EnderecoPessoaListResponse> buscaEnderecoPessoaPorId(UUID idPessoa);
+    List<EnderecoPessoaListResponse> buscaEnderecoDePessoaPorId(UUID idPessoa);
     EnderecoPrincipalDetalhado buscaEnderecoPrincipal(Boolean principal, UUID idPessoa);
 }

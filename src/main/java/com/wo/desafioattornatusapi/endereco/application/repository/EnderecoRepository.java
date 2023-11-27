@@ -8,6 +8,6 @@ import java.util.UUID;
 public interface EnderecoRepository {
     Endereco salvaEndereco(Endereco endereco);
 
-    List<Endereco> buscaEnderecosPessoaComId(UUID idPessoa);
+    List<Endereco> buscaEnderecosDePessoaComId(UUID idPessoa);
     Endereco buscaEnderecoPrincipal(Boolean principal);
 }
