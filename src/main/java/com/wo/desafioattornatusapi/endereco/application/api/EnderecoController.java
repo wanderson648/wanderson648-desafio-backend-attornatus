@@ -41,4 +41,7 @@ public class EnderecoController implements EnderecoAPI {
         log.info("[finaliza] EnderecoController - getEnderecoPrincipalDaPessoa");
         return enderecoPrincipal;
     }
+
+
+
 }

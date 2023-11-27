@@ -1,12 +1,10 @@
 package com.wo.desafioattornatusapi.endereco.application.service;
 
-import com.wo.desafioattornatusapi.endereco.application.api.EnderecoPessoaListResponse;
-import com.wo.desafioattornatusapi.endereco.application.api.EnderecoPrincipalDetalhado;
-import com.wo.desafioattornatusapi.endereco.application.api.EnderecoRequest;
-import com.wo.desafioattornatusapi.endereco.application.api.EnderecoResponse;
+import com.wo.desafioattornatusapi.endereco.application.api.*;
 import com.wo.desafioattornatusapi.endereco.application.repository.EnderecoRepository;
 import com.wo.desafioattornatusapi.endereco.domain.Endereco;
 import com.wo.desafioattornatusapi.pessoa.application.service.PessoaService;
+import com.wo.desafioattornatusapi.pessoa.domain.Pessoa;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -43,7 +41,7 @@ public class EnderecoServiceImpl implements EnderecoService {
 
     @Override
     public EnderecoPrincipalDetalhado buscaEnderecoPrincipal(
-            Boolean pricipal,UUID idPessoa) {
+            Boolean pricipal, UUID idPessoa) {
 
         log.info("[inicia] EnderecoController - buscaEnderecoPrincipal");
         pessoaService.getPessoaId(idPessoa);
@@ -51,4 +49,5 @@ public class EnderecoServiceImpl implements EnderecoService {
         log.info("[finaliza] EnderecoController - buscaEnderecoPrincipal");
         return new EnderecoPrincipalDetalhado(endereco);
     }
+
 }

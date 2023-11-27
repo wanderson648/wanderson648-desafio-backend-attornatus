@@ -6,7 +6,6 @@ import com.wo.desafioattornatusapi.endereco.application.repository.EnderecoRepos
 import com.wo.desafioattornatusapi.endereco.application.util.EnderecoCreator;
 import com.wo.desafioattornatusapi.endereco.application.util.EnderecoRequestCreator;
 import com.wo.desafioattornatusapi.endereco.domain.Endereco;
-import com.wo.desafioattornatusapi.pessoa.application.api.PessoaDetalhadoResponse;
 import com.wo.desafioattornatusapi.pessoa.application.service.PessoaService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

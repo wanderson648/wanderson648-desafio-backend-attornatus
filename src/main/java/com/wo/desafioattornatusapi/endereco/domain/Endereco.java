@@ -32,6 +32,7 @@ public class Endereco {
     @NotNull
     private Boolean principalEndereco;
     private LocalDateTime dataHoraDoCadastro;
+    private LocalDateTime dataHoraDaUltimaAlteracao;
 
 
     public Endereco(UUID idPessoa, EnderecoRequest enderecoRequest) {

@@ -2,8 +2,10 @@ package com.wo.desafioattornatusapi.endereco.application.infra;
 
 import com.wo.desafioattornatusapi.endereco.application.repository.EnderecoRepository;
 import com.wo.desafioattornatusapi.endereco.domain.Endereco;
+import com.wo.desafioattornatusapi.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,9 +35,9 @@ public class EnderecoRepositoryImpl implements EnderecoRepository {
 
     @Override
     public Endereco buscaEnderecoPrincipal(Boolean principal) {
-        log.info("[inicia] EnderecoRepositoryImpl - buscaEnderecoPeloId");
+        log.info("[inicia] EnderecoRepositoryImpl - buscaEnderecoPrincipal");
         var endereco = enderecoSpringJpaRepository.findByPrincipalEndereco(principal);
-        log.info("[finaliza] EnderecoRepositoryImpl - buscaEnderecoPeloId");
+        log.info("[finaliza] EnderecoRepositoryImpl - buscaEnderecoPrincipal");
         return endereco;
     }
 }

@@ -1,9 +1,11 @@
 package com.wo.desafioattornatusapi.pessoa.application.infra;
 
+import com.wo.desafioattornatusapi.handler.APIException;
 import com.wo.desafioattornatusapi.pessoa.domain.Pessoa;
 import com.wo.desafioattornatusapi.pessoa.application.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,7 +37,8 @@ public class PessoaRepositoryImpl implements PessoaRepository {
     public Pessoa buscarPessoaPorId(UUID idPessoa) {
         log.info("[inicia] PessoaInfraRepository - buscarTodasAsPessoas");
         Pessoa pessoa = pessoaSpringJpaRepository.findById(idPessoa)
-                .orElseThrow(() -> new RuntimeException("Pessoa não encontrada!"));
+                .orElseThrow(() -> APIException.build(
+                        HttpStatus.NOT_FOUND,"Pessoa não encontrada!"));
 
         log.info("[finaliza] PessoaInfraRepository - buscarTodasAsPessoas");
         return pessoa;
